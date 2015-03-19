@@ -2,7 +2,7 @@
 * Carrega as informações da página "Home"
 **/
 function loadHome(){  
-    getNews();
+    alert("ok");
 }
 
 function getNews(){
@@ -21,7 +21,7 @@ function getNews(){
         });              
     });
 
-    // executa esta função a cada 1 minuto ou o caso o usuário solicitar a atualização
+    // executa esta função a cada 1 minuto ou caso o usuário solicitar a atualização
 }
 
 /*
@@ -32,30 +32,10 @@ function loadNews(){
 }
 
 /* 
-* Carrega as informações da página "Categorias"
+*   Carrega as informações da página "Categorias"
 **/
 function loadCategories(){
 
-}
-
-function loadPage(page){ 
-    showLoading(); 
-   
-    page = (typeof page !== 'undefined') ? page : "home";
-
-    if(page == "home"){
-        loadHome();
-    }
-
-    if(page == "news"){
-        loadNews();
-    }
-
-    if(page == "categories"){
-        loadCategories();
-    }
-
-    hideLoading(); 
 }
 
 function showLoading(){
@@ -74,16 +54,49 @@ function errorDB(error){
     alert("ERROR: " + error);
 }
 
-function successDB(){
+function successDB(){ 
     // sucesso
 }
+  
+function slide(direction) {
+    var options = {
+        "direction"        : direction,
+        "duration"         :  500,
+        "slowdownfactor"   :    3,
+        "iosdelay"         :  100,
+        "androiddelay"     :  150,
+        "winphonedelay"    :  250,
+        "fixedPixelsTop"   :    0,
+        "fixedPixelsBottom":   60  
+    };
+    
+    window.plugins.nativepagetransitions.slide(
+        options,
+        function (msg) {},   
+        function (msg) {} 
+    );
+}   
 
-document.addEventListener("deviceready", onDeviceReady, false);
+function flip(direction){
+    var options = {
+        "direction"      : direction,
+        "duration"       :  600,
+        "iosdelay"       :   50,
+        "androiddelay"   :  100,
+        "winphonedelay"  :  150
+    };
+        
+    window.plugins.nativepagetransitions.flip(
+        options,
+        function (msg) {},
+        function (msg) {}  
+    );
+}
    
+document.addEventListener("deviceready", onDeviceReady, false);
+
 var db;  
 function onDeviceReady(){   
     db = window.sqlitePlugin.openDatabase({name: "my.db"});
     db.transaction(populateDB, errorDB, successDB);
-     
-    loadPage();
 }

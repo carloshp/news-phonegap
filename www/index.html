@@ -16,17 +16,24 @@
 
             <div id="sidebar"></div>
             <!-- / #sidebar-->
-
+ 
             <div id="header">              
-                <a href="javascript:loadPage('home');">Home</a>
-                <a href="javascript:loadPage('news');">Notícias</a>
-                <a href="javascript:loadPage('categories');">Categorias</a>
-            </div>
-            <!-- / #header-->
-
-            <div id="content"> 
                  
-            </div>      
+            </div>
+            <!-- / #header-->   
+
+            <div id="content">    
+                <a href="" onClick="slide('up');">SLIDE UP</a>
+                <a href="" onClick="slide('left');">SLIDE LEFT</a>
+                <a href="" onClick="slide('right');">SLIDE RIGHT</a>
+                <a href="" onClick="slide('down');">SLIDE DOWN</a>
+                <br>-------------------------------<br>   
+                <a href="" onClick="flip('up');">FLIP UP</a>
+                <a href="" onClick="flip('left');">FLIP LEFT</a>
+                <a href="" onClick="flip('right');">FLIP RIGHT</a>
+                <a href="" onClick="flip('down');">FLIP DOWN</a>
+            </div> 
+
             <!-- / #content-->  
         </div>  
     </body>  
@@ -34,6 +41,6 @@
     <!-- JAVASCRIPT-->
     <script type="text/javascript" src="cordova.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/mustache.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/jquery/jquery-1.11.2.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/main.js" charset="utf-8"></script>  
 </html>
